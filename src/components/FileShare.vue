@@ -2,7 +2,7 @@
   <a-row type="flex">
     <a-col :flex="5"></a-col>
     <a-col :flex="2">
-      <a-divider />
+      <a-divider/>
       <a-row>
         <a-col span="1"></a-col>
         <a-col span="22">
@@ -15,10 +15,10 @@
         </a-col>
         <a-col span="1"></a-col>
       </a-row>
-      <br />
+      <br/>
       <div style="padding-inline: 4%;">
         <a-upload-dragger :progress="progress" name="file" :before-upload="beforeUpload" :showUploadList="true"
-          :capture="null" :multiple="false" action="/file/upload" @change="handleChange">
+                          :capture="null" :multiple="false" action="/file/upload" @change="handleChange">
           <p class="ant-upload-drag-icon">
             <inbox-outlined></inbox-outlined>
           </p>
@@ -26,19 +26,19 @@
         </a-upload-dragger>
       </div>
 
-      <br />
+      <br/>
       <div>
         <a-input v-model:value="shareCode" allowClear placeholder="请输入文件提取码" show-count :maxlength="10"
-          style="vertical-align:middle;width: calc(95% - 150px);height: 40px;" />
-        <a-divider type="vertical" />
+                 style="vertical-align:middle;width: calc(95% - 150px);height: 40px;"/>
+        <a-divider type="vertical"/>
         <a-button @click="download" type="primary" shape="round" style="vertical-align:middle;height: 40px;">
           <template #icon>
-            <DownloadOutlined />
+            <DownloadOutlined/>
           </template>
           提取文件
         </a-button>
       </div>
-      <a-divider />
+      <a-divider/>
     </a-col>
     <a-col :flex="5"></a-col>
   </a-row>
@@ -47,7 +47,7 @@
       <template #extra>
         <a-button @click="copy" type="primary" shape="round">
           <template #icon>
-            <CopyOutlined />
+            <CopyOutlined/>
           </template>
           复制下载链接
         </a-button>
@@ -60,17 +60,16 @@
     <p>文件md5: {{ fileMd5 }}</p>
     <p>文件上传时间: {{ uploadDate }}</p>
   </a-modal>
-
 </template>
 
 <script>
-import { InboxOutlined, DownloadOutlined, CopyOutlined } from '@ant-design/icons-vue';
-import { message } from 'ant-design-vue';
-import { defineComponent, ref } from 'vue';
+import {CopyOutlined, DownloadOutlined, InboxOutlined} from '@ant-design/icons-vue';
+import {message} from 'ant-design-vue';
+import {defineComponent} from 'vue';
 import useClipboard from 'vue-clipboard3';
 import axios from 'axios';
 
-const { toClipboard } = useClipboard();
+const {toClipboard} = useClipboard();
 
 export default defineComponent({
   components: {
@@ -114,7 +113,7 @@ export default defineComponent({
       uploadResult: '',
       uploadStatus: 'info',
       handleChange: e => {
-        if (e.file.status == 'done') {
+        if (e.file.status === 'done') {
           this.showResult = true
           this.uploadStatus = e.file.response.status
           this.downLoadUrl = window.location.href + "file/download/" + e.file.response.fileObj.shareCode
