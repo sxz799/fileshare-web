@@ -7,16 +7,9 @@ module.exports = defineConfig({
     proxy: {
       '/file': {
         ws: false,
-        target: "http://127.0.0.1:7990",
+        target: "http://d.sxz799.fun:4000",
         changeOrigin: true
       }
     }
   },
 })
-
-
-
-
-
-
-
