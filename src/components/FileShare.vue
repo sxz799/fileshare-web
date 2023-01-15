@@ -7,8 +7,8 @@
         <a-col span="1"></a-col>
         <a-col span="22">
           <a-card title="温馨提示">
-            <h5>欢迎使用临时网盘系统.</h5>
-            <h5>请勿上传隐私文件!</h5>
+            <h5 style="color: darkgreen">欢迎使用临时网盘系统.</h5>
+            <h5 style="color: brown">请勿上传隐私文件!</h5>
             <h3>文件有效期为 <a style="color: red"> {{ limitFileLife }} </a> 小时！</h3>
             <h3>文件大小限制 <a style="color: red"> {{ limitFileSize }} </a> MB！</h3>
           </a-card>
@@ -22,14 +22,14 @@
           <p class="ant-upload-drag-icon">
             <inbox-outlined></inbox-outlined>
           </p>
-          <p class="ant-upload-text">点击或拖拽文件到这里进行上传</p>
+          <p style="color: mediumpurple" class="ant-upload-text">点击或拖拽文件到这里进行上传</p>
         </a-upload-dragger>
       </div>
 
       <br/>
-      <div>
+      <div  style="padding-inline: 4%;margin: auto">
         <a-input v-model:value="shareCode" allowClear placeholder="请输入文件提取码" show-count :maxlength="10"
-                 style="vertical-align:middle;width: calc(95% - 150px);height: 40px;"/>
+                 style="vertical-align:middle;width: calc(95% - 120px);height: 40px;"/>
         <a-divider type="vertical"/>
         <a-button @click="download" type="primary" shape="round" style="vertical-align:middle;height: 40px;">
           <template #icon>
